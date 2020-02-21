@@ -15,24 +15,29 @@ class Locationl{
 		this.teaserimage=teaserimage;
 
 	}
+	
+
 	display(){
 		console.log("display successful");
 
 		for(let value of arrayOfLocations){
 		$("#texthere").append(`
-			<div class="locationcol">
+			<div class="locationcol col-lg-3 col-md-6 col-sm-12">
 				<div>
 					<p>${value.name}</p>
 					<p>${value.city}</p>
 					<p>${value.zipcode}</p>
 					<p>${value.address}</p>
-					<p>${value.teaserimage}</p>
+				</div>
+				<div>
+				<img class="timage" src="img/${value.teaserimage}.jpg">
 				</div>
 			</div>
 		`)
 		}	
 
-	} 
+	}
+
 }
 
 class Restaurant extends Locationl{
@@ -48,9 +53,31 @@ class Restaurant extends Locationl{
 		this.webadress=webadress;
 
 	}
-	// display(){
+	display(){
+		console.log("display R successful");
 
-	// } 
+		for(let value of arrayOfRestaurants){
+		$("#texthere").append(`
+			<div class="locationcol col-lg-3 col-md-6 col-sm-12">
+				<div>
+					<p>${value.name}</p>
+					<p>${value.city}</p>
+					<p>${value.zipcode}</p>
+					<p>${value.address}</p>
+				</div>
+				<div>
+				<img class="timage" src="img/${value.teaserimage}.jpg">
+				</div>
+				<div>
+					<p>${value.telephonenumber}</p>
+					<p>${value.typer}</p>
+					<p>${value.webadress}</p>
+				</div>
+			</div>
+		`)
+		}	
+
+	} 
 }
 
 class Events extends Locationl{
@@ -66,28 +93,66 @@ class Events extends Locationl{
 		
 
 	}
-// 	display(){
+	display(){
+		console.log("display E successful");
 
-// 	} 
+		for(let value of arrayOfEvents){
+		$("#texthere").append(`
+			<div class="locationcol col-lg-3 col-md-6 col-sm-12">
+				<div>
+					<p>${value.name}</p>
+					<p>${value.city}</p>
+					<p>${value.zipcode}</p>
+					<p>${value.address}</p>					
+				</div>
+				<div>
+				<img class="timage" src="img/${value.teaserimage}.jpg">
+				</div>
+				<div>
+				<p>time: ${value.eventtime}</p>
+					<p>date: ${value.eventdate}</p>
+					<p>${value.price} Euro</p>
+				</div>
+
+			</div>
+		`)
+		}	
+
+	}  
 }
 
-let stCharles= new Locationl("St.Charles Church","Vienna",1010,"Karlsplatz 1","img");
+let stCharles= new Locationl("St.Charles Church","Vienna",1010,"Karlsplatz 1","StCharles");
 
-let schoenbrunn= new Locationl("Schoenbrunn","Vienna",1130,"Maxingstraße 13b","img");
+let schoenbrunn= new Locationl("Schoenbrunn","Vienna",1130,"Maxingstraße 13b","schoenbrunn");
 
-let onrestaurant= new Restaurant("ON Restaurant","Vienna",1050,"Wehrgasse 8","img","+43(1)5854900", "Chinese","http://www.restaurant-on.at/");
-let biofrische= new Restaurant("BioFrische","Vienna",1150,"Stutterheimstraße 6","img","+43(1) 9529215", "Indian","https://biofrische.wien/");
+let onrestaurant= new Restaurant("ON Restaurant","Vienna",1050,"Wehrgasse 8","onrest","+43(1)5854900", "Chinese","http://www.restaurant-on.at/");
+let biofrische= new Restaurant("BioFrische","Vienna",1150,"Stutterheimstraße 6","biofrische","+43(1) 9529215", "Indian","https://biofrische.wien/");
 
-let catthem=new Events("Cats- the musical","Vienna",1010,"Ronacher- Seilerstätte 9","img","20:00","Fr., 15.12.2020",120.00);
+let catthem=new Events("Cats- the musical","Vienna",1010,"Ronacher- Seilerstätte 9","ronacher","20:00","Fr., 15.12.2020",120.00);
 
-let gunsnroses=new Events("Guns ‘n Roses","Vienna",1020,"Ernst-Happel Stadion, Meiereistraße 7","img","19:30","Sat, 09.06.2020 ",95.50);
+let gunsnroses=new Events("Guns ‘n Roses","Vienna",1020,"Meiereistraße 7","ernsthappelstadion","19:30","Sat, 09.06.2020 ",95.50);
 
 
 let arrayOfLocations:Array<any> = [];
 
 arrayOfLocations.push(stCharles);
 arrayOfLocations.push(schoenbrunn);
-arrayOfLocations.push(onrestaurant);
-arrayOfLocations.push(biofrische);
-arrayOfLocations.push(catthem);
-arrayOfLocations.push(gunsnroses);
+
+let arrayOfRestaurants:Array<any> = [];
+arrayOfRestaurants.push(onrestaurant);
+arrayOfRestaurants.push(biofrische);
+
+let arrayOfEvents:Array<any> = [];
+arrayOfEvents.push(catthem);
+arrayOfEvents.push(gunsnroses);
+
+
+stCharles.display();
+onrestaurant.display();
+gunsnroses.display();
+
+console.log(arrayOfLocations);
+console.log(arrayOfRestaurants);
+console.log(arrayOfEvents);
+
+

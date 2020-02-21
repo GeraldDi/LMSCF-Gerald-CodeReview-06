@@ -28,7 +28,7 @@ var Locationl = /** @class */ (function () {
         console.log("display successful");
         for (var _i = 0, arrayOfLocations_1 = arrayOfLocations; _i < arrayOfLocations_1.length; _i++) {
             var value = arrayOfLocations_1[_i];
-            $("#texthere").append("\n\t\t\t<div class=\"locationcol\">\n\t\t\t\t<div>\n\t\t\t\t\t<p>" + value.name + "</p>\n\t\t\t\t\t<p>" + value.city + "</p>\n\t\t\t\t\t<p>" + value.zipcode + "</p>\n\t\t\t\t\t<p>" + value.address + "</p>\n\t\t\t\t\t<p>" + value.teaserimage + "</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t");
+            $("#texthere").append("\n\t\t\t<div class=\"locationcol col-lg-3 col-md-6 col-sm-12\">\n\t\t\t\t<div>\n\t\t\t\t\t<p>" + value.name + "</p>\n\t\t\t\t\t<p>" + value.city + "</p>\n\t\t\t\t\t<p>" + value.zipcode + "</p>\n\t\t\t\t\t<p>" + value.address + "</p>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t<img class=\"timage\" src=\"img/" + value.teaserimage + ".jpg\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t");
         }
     };
     return Locationl;
@@ -42,6 +42,13 @@ var Restaurant = /** @class */ (function (_super) {
         _this.webadress = webadress;
         return _this;
     }
+    Restaurant.prototype.display = function () {
+        console.log("display R successful");
+        for (var _i = 0, arrayOfRestaurants_1 = arrayOfRestaurants; _i < arrayOfRestaurants_1.length; _i++) {
+            var value = arrayOfRestaurants_1[_i];
+            $("#texthere").append("\n\t\t\t<div class=\"locationcol col-lg-3 col-md-6 col-sm-12\">\n\t\t\t\t<div>\n\t\t\t\t\t<p>" + value.name + "</p>\n\t\t\t\t\t<p>" + value.city + "</p>\n\t\t\t\t\t<p>" + value.zipcode + "</p>\n\t\t\t\t\t<p>" + value.address + "</p>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t<img class=\"timage\" src=\"img/" + value.teaserimage + ".jpg\">\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<p>" + value.telephonenumber + "</p>\n\t\t\t\t\t<p>" + value.typer + "</p>\n\t\t\t\t\t<p>" + value.webadress + "</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t");
+        }
+    };
     return Restaurant;
 }(Locationl));
 var Events = /** @class */ (function (_super) {
@@ -53,18 +60,33 @@ var Events = /** @class */ (function (_super) {
         _this.price = price;
         return _this;
     }
+    Events.prototype.display = function () {
+        console.log("display E successful");
+        for (var _i = 0, arrayOfEvents_1 = arrayOfEvents; _i < arrayOfEvents_1.length; _i++) {
+            var value = arrayOfEvents_1[_i];
+            $("#texthere").append("\n\t\t\t<div class=\"locationcol col-lg-3 col-md-6 col-sm-12\">\n\t\t\t\t<div>\n\t\t\t\t\t<p>" + value.name + "</p>\n\t\t\t\t\t<p>" + value.city + "</p>\n\t\t\t\t\t<p>" + value.zipcode + "</p>\n\t\t\t\t\t<p>" + value.address + "</p>\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t<img class=\"timage\" src=\"img/" + value.teaserimage + ".jpg\">\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t<p>time: " + value.eventtime + "</p>\n\t\t\t\t\t<p>date: " + value.eventdate + "</p>\n\t\t\t\t\t<p>" + value.price + " Euro</p>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t");
+        }
+    };
     return Events;
 }(Locationl));
-var stCharles = new Locationl("St.Charles Church", "Vienna", 1010, "Karlsplatz 1", "img");
-var schoenbrunn = new Locationl("Schoenbrunn", "Vienna", 1130, "Maxingstraße 13b", "img");
-var onrestaurant = new Restaurant("ON Restaurant", "Vienna", 1050, "Wehrgasse 8", "img", "+43(1)5854900", "Chinese", "http://www.restaurant-on.at/");
-var biofrische = new Restaurant("BioFrische", "Vienna", 1150, "Stutterheimstraße 6", "img", "+43(1) 9529215", "Indian", "https://biofrische.wien/");
-var catthem = new Events("Cats- the musical", "Vienna", 1010, "Ronacher- Seilerstätte 9", "img", "20:00", "Fr., 15.12.2020", 120.00);
-var gunsnroses = new Events("Guns ‘n Roses", "Vienna", 1020, "Ernst-Happel Stadion, Meiereistraße 7", "img", "19:30", "Sat, 09.06.2020 ", 95.50);
+var stCharles = new Locationl("St.Charles Church", "Vienna", 1010, "Karlsplatz 1", "StCharles");
+var schoenbrunn = new Locationl("Schoenbrunn", "Vienna", 1130, "Maxingstraße 13b", "schoenbrunn");
+var onrestaurant = new Restaurant("ON Restaurant", "Vienna", 1050, "Wehrgasse 8", "onrest", "+43(1)5854900", "Chinese", "http://www.restaurant-on.at/");
+var biofrische = new Restaurant("BioFrische", "Vienna", 1150, "Stutterheimstraße 6", "biofrische", "+43(1) 9529215", "Indian", "https://biofrische.wien/");
+var catthem = new Events("Cats- the musical", "Vienna", 1010, "Ronacher- Seilerstätte 9", "ronacher", "20:00", "Fr., 15.12.2020", 120.00);
+var gunsnroses = new Events("Guns ‘n Roses", "Vienna", 1020, "Meiereistraße 7", "ernsthappelstadion", "19:30", "Sat, 09.06.2020 ", 95.50);
 var arrayOfLocations = [];
 arrayOfLocations.push(stCharles);
 arrayOfLocations.push(schoenbrunn);
-arrayOfLocations.push(onrestaurant);
-arrayOfLocations.push(biofrische);
-arrayOfLocations.push(catthem);
-arrayOfLocations.push(gunsnroses);
+var arrayOfRestaurants = [];
+arrayOfRestaurants.push(onrestaurant);
+arrayOfRestaurants.push(biofrische);
+var arrayOfEvents = [];
+arrayOfEvents.push(catthem);
+arrayOfEvents.push(gunsnroses);
+stCharles.display();
+onrestaurant.display();
+gunsnroses.display();
+console.log(arrayOfLocations);
+console.log(arrayOfRestaurants);
+console.log(arrayOfEvents);
