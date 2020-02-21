@@ -7,37 +7,34 @@ class Locationl{
 	teaserimage="";
 
 
-	constructor(name,city,zipcode,address,teaserimage){
+	constructor(name,city,zipcode,address,teaserimage,creationdate){
 		this.name=name;
 		this.city=city;
 		this.zipcode=zipcode;
 		this.address=address;
 		this.teaserimage=teaserimage;
+		this.creationdate=creationdate;
 
 	}
 	
-
 	display(){
-		console.log("display successful");
-
 		for(let value of arrayOfLocations){
 		$("#texthere").append(`
-			<div class="locationcol col-lg-3 col-md-6 col-sm-12">
-				<div>
+			<div class="locationcol col-lg-3 col-md-6 col-sm-12 border b-1">
+				<div>				
 					<p>${value.name}</p>
 					<p>${value.city}</p>
 					<p>${value.zipcode}</p>
 					<p>${value.address}</p>
 				</div>
 				<div>
+				<p>Created: ${value.creationdate}</p>
 				<img class="timage" src="img/${value.teaserimage}.jpg">
 				</div>
 			</div>
 		`)
 		}	
-
 	}
-
 }
 
 class Restaurant extends Locationl{
@@ -45,20 +42,17 @@ class Restaurant extends Locationl{
 	typer;
 	webadress;
 
-
-	constructor(name,city,zipcode,address,teaserimage,telephonenumber,typer,webadress){
-		super(name,city,zipcode,address,teaserimage);
+	constructor(name,city,zipcode,address,teaserimage,creationdate,telephonenumber,typer,webadress){
+		super(name,city,zipcode,address,teaserimage,creationdate);
 		this.telephonenumber=telephonenumber;
 		this.typer=typer;
 		this.webadress=webadress;
 
 	}
 	display(){
-		console.log("display R successful");
-
 		for(let value of arrayOfRestaurants){
 		$("#texthere").append(`
-			<div class="locationcol col-lg-3 col-md-6 col-sm-12">
+			<div class="locationcol col-lg-3 col-md-6 col-sm-12 border b-1">
 				<div>
 					<p>${value.name}</p>
 					<p>${value.city}</p>
@@ -66,6 +60,7 @@ class Restaurant extends Locationl{
 					<p>${value.address}</p>
 				</div>
 				<div>
+				<p>Created: ${value.creationdate}</p>
 				<img class="timage" src="img/${value.teaserimage}.jpg">
 				</div>
 				<div>
@@ -85,8 +80,8 @@ class Events extends Locationl{
 	eventdate;
 	price;
 
-	constructor(name,city,zipcode,address,teaserimage,eventtime,eventdate,price){
-		super(name,city,zipcode,address,teaserimage);
+	constructor(name,city,zipcode,address,teaserimage,creationdate,eventtime,eventdate,price){
+		super(name,city,zipcode,address,teaserimage,creationdate);
 		this.eventtime=eventtime;
 		this.eventdate=eventdate;
 		this.price=price;
@@ -94,11 +89,9 @@ class Events extends Locationl{
 
 	}
 	display(){
-		console.log("display E successful");
-
 		for(let value of arrayOfEvents){
 		$("#texthere").append(`
-			<div class="locationcol col-lg-3 col-md-6 col-sm-12">
+			<div class="locationcol col-lg-3 col-md-6 col-sm-12 border b-1">
 				<div>
 					<p>${value.name}</p>
 					<p>${value.city}</p>
@@ -106,14 +99,14 @@ class Events extends Locationl{
 					<p>${value.address}</p>					
 				</div>
 				<div>
+				<p>Created: ${value.creationdate}</p>
 				<img class="timage" src="img/${value.teaserimage}.jpg">
 				</div>
 				<div>
-				<p>time: ${value.eventtime}</p>
+					<p>time: ${value.eventtime}</p>
 					<p>date: ${value.eventdate}</p>
-					<p>${value.price} Euro</p>
+					<p>price: ${value.price} Euro</p>
 				</div>
-
 			</div>
 		`)
 		}	
@@ -121,16 +114,16 @@ class Events extends Locationl{
 	}  
 }
 
-let stCharles= new Locationl("St.Charles Church","Vienna",1010,"Karlsplatz 1","StCharles");
+let stCharles= new Locationl("St.Charles Church","Vienna",1010,"Karlsplatz 1","StCharles","01.10.2020 12:45");
 
-let schoenbrunn= new Locationl("Schoenbrunn","Vienna",1130,"Maxingstraße 13b","schoenbrunn");
+let schoenbrunn= new Locationl("Schoenbrunn","Vienna",1130,"Maxingstraße 13b","schoenbrunn","02.10.2020 12:45");
 
-let onrestaurant= new Restaurant("ON Restaurant","Vienna",1050,"Wehrgasse 8","onrest","+43(1)5854900", "Chinese","http://www.restaurant-on.at/");
-let biofrische= new Restaurant("BioFrische","Vienna",1150,"Stutterheimstraße 6","biofrische","+43(1) 9529215", "Indian","https://biofrische.wien/");
+let onrestaurant= new Restaurant("ON Restaurant","Vienna",1050,"Wehrgasse 8","onrest","03.10.2020 12:45","+43(1)5854900", "Chinese","http://www.restaurant-on.at/");
+let biofrische= new Restaurant("BioFrische","Vienna",1150,"Stutterheimstraße 6","biofrische","04.10.2020 12:45","+43(1) 9529215", "Indian","https://biofrische.wien/");
 
-let catthem=new Events("Cats- the musical","Vienna",1010,"Ronacher- Seilerstätte 9","ronacher","20:00","Fr., 15.12.2020",120.00);
+let catthem=new Events("Cats- the musical","Vienna",1010,"Ronacher- Seilerstätte 9","ronacher","05.10.2020 12:45","20:00","Fr., 15.12.2020",120.00);
 
-let gunsnroses=new Events("Guns ‘n Roses","Vienna",1020,"Meiereistraße 7","ernsthappelstadion","19:30","Sat, 09.06.2020 ",95.50);
+let gunsnroses=new Events("Guns ‘n Roses","Vienna",1020,"Meiereistraße 7","ernsthappelstadion","06.10.2020 12:45","19:30","Sat, 09.06.2020 ",95.50);
 
 
 let arrayOfLocations:Array<any> = [];
@@ -154,5 +147,4 @@ gunsnroses.display();
 console.log(arrayOfLocations);
 console.log(arrayOfRestaurants);
 console.log(arrayOfEvents);
-
 
