@@ -5,6 +5,7 @@ class Locationl{
 	zipcode="";
 	address="";
 	teaserimage="";
+	creationdate="";
 
 
 	constructor(name,city,zipcode,address,teaserimage,creationdate){

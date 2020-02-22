@@ -18,6 +18,7 @@ var Locationl = /** @class */ (function () {
         this.zipcode = "";
         this.address = "";
         this.teaserimage = "";
+        this.creationdate = "";
         this.name = name;
         this.city = city;
         this.zipcode = zipcode;
